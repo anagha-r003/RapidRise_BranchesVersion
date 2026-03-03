@@ -2,6 +2,7 @@ package com.rapidrise.task2_jwt_crud_api.controller;
 
 import com.rapidrise.task2_jwt_crud_api.dto.ForgotPasswordRequest;
 import com.rapidrise.task2_jwt_crud_api.dto.LoginRequest;
+import com.rapidrise.task2_jwt_crud_api.dto.RefreshTokenRequest;
 import com.rapidrise.task2_jwt_crud_api.dto.RegisterRequest;
 import com.rapidrise.task2_jwt_crud_api.service.AuthService;
 import jakarta.validation.Valid;
@@ -31,5 +32,10 @@ public class AuthController {
     @PostMapping("/forgot-password")
     public ResponseEntity<?> forgotPassword(@Valid @RequestBody ForgotPasswordRequest request){
         return authService.forgotPassword(request);
+    }
+
+    @PostMapping("/refresh")
+    public ResponseEntity<?> refresh(@Valid @RequestBody RefreshTokenRequest request){
+        return authService.refreshToken(request);
     }
 }

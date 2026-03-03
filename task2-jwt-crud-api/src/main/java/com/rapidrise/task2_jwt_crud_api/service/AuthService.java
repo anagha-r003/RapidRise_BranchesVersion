@@ -54,6 +54,9 @@ public class AuthService {
             throw new InvalidCredentialsException("Invalid password");
         }
 
+        //delete old refresh token
+        refreshTokenRepository.deleteByUser(user);
+
         String accessToken = jwtUtil.generateAccessToken(user.getUsername());
 
         String refreshTokenValue = UUID.randomUUID().toString();
@@ -62,6 +65,7 @@ public class AuthService {
         refreshToken.setToken(refreshTokenValue);
         refreshToken.setUser(user);
         refreshToken.setExpiryDate(Instant.now().plusMillis(604800000));
+
         refreshTokenRepository.save(refreshToken);
 
         AuthResponse response = new AuthResponse(accessToken, refreshTokenValue);
@@ -85,6 +89,30 @@ public class AuthService {
 
         return ResponseEntity.ok(
                 new ResponseStructure<>(200,"Password updated successfully",null)
+        );
+    }
+
+    public ResponseEntity<ResponseStructure<AuthResponse>> refreshToken(RefreshTokenRequest request){
+
+        RefreshToken refreshToken = refreshTokenRepository
+                .findByToken(request.getRefreshToken())
+                .orElseThrow(() -> new RuntimeException("Invalid refresh token"));
+
+        if(refreshToken.getExpiryDate().isBefore(Instant.now())){
+            refreshTokenRepository.delete(refreshToken);
+            throw new RuntimeException("Refresh token expired. Please login again.");
+        }
+
+        String newAccessToken =
+                jwtUtil.generateAccessToken(refreshToken.getUser().getUsername());
+
+        AuthResponse response = new AuthResponse(
+                newAccessToken,
+                refreshToken.getToken()
+        );
+
+        return ResponseEntity.ok(
+                new ResponseStructure<>(200,"Access token refreshed",response)
         );
     }
 }
