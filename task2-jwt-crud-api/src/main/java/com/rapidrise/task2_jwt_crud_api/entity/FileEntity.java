@@ -1,22 +1,23 @@
 package com.rapidrise.task2_jwt_crud_api.entity;
 
+
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.time.Instant;
-
 @Entity
+@Table(name = "files")
 @Data
-@Table(name = "refresh_token2")
-public class RefreshToken {
+public class FileEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 500)
-    private String token;
+    private String fileName;
 
-    private Instant expiryDate;
+    private String fileType;
+
+    private String filePath;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

@@ -63,4 +63,26 @@ public class GlobalExceptionHandler {
 
         return new ResponseEntity<>(structure, HttpStatus.BAD_REQUEST);
     }
+
+
+    @ExceptionHandler(FileNotFoundException.class)
+    public ResponseEntity<ResponseStructure<String>> handleFileNotFound(FileNotFoundException ex){
+
+        ResponseStructure<String> structure =
+                new ResponseStructure<>(404, ex.getMessage(), null);
+
+        return new ResponseEntity<>(structure, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(InvalidFileTypeException.class)
+    public ResponseEntity<ResponseStructure<String>> handleInvalidFileType(InvalidFileTypeException ex){
+
+        ResponseStructure<String> structure =
+                new ResponseStructure<>(400, ex.getMessage(), null);
+
+        return new ResponseEntity<>(structure, HttpStatus.BAD_REQUEST);
+    }
+
+
+
 }

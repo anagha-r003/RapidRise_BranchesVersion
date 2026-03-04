@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1a8099b-3fa4-49f0-b9e8-7c220b590546" name="Changes" comment="" />
+    <list default="true" id="b1a8099b-3fa4-49f0-b9e8-7c220b590546" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task2-jwt-crud-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/task2-jwt-crud-api/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,9 +55,9 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "Spring Boot.Task1SecureArithmeticApiApplication.executor": "Run",
-    "git-widget-placeholder": "task2",
+    "git-widget-placeholder": "task2-file-feature",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/anagharnair/IdeaProjects/RapidRise_BranchesVersion",
+    "last_opened_file_path": "/home/anagharnair/IdeaProjects/FinalDemo/BackendTasks/task2-jwt-crud-api",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -89,6 +92,10 @@
       <workItem from="1772423678416" duration="10344000" />
       <workItem from="1772441827267" duration="2892000" />
       <workItem from="1772511036083" duration="117000" />
+      <workItem from="1772511255192" duration="1828000" />
+      <workItem from="1772525093199" duration="628000" />
+      <workItem from="1772533582815" duration="605000" />
+      <workItem from="1772595582199" duration="444000" />
     </task>
     <servers />
   </component>

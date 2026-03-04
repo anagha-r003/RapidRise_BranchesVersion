@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -45,6 +46,7 @@ public class AuthService {
                 .body(new ResponseStructure<>(201,"User Registered",null));
     }
 
+    @Transactional
     public ResponseEntity<ResponseStructure<AuthResponse>> login(LoginRequest request){
 
         User user = userRepository.findByUsername(request.getUsername())
